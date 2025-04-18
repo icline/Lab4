@@ -1,3 +1,5 @@
+import sys
+
 from typing import List
 
 class HeapSort:
@@ -58,13 +60,26 @@ class HeapSort:
             self.heapify()
 
         print('Sorted Array:')
+        print(*sorted_array)
         return sorted_array
 
 
 if __name__ == "__main__":
-    array = [3,2,5,5,4,1]
-    heap = HeapSort(array)
-    print(heap.heap_sort())
+    input_file = open(sys.argv[1], 'r')
+    output_file = open(sys.argv[2], 'w')
+    
+    values = []
+    for line in input_file:
+        number = line.strip()
+        values.append(int(number))
+
+    heap = HeapSort(values)
+    results = heap.heap_sort()
+    results = str(results)
+    output_file.write(results)
+
+    input_file.close()
+    output_file.close()
         
             
 
