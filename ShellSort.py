@@ -1,4 +1,4 @@
-import InsertionSort
+from InsertionSort import InsertionSort
 
 class ShellSort:
     """
