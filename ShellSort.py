@@ -11,7 +11,8 @@ class ShellSort:
         self.knuth_increments = [1, 4, 13, 40, 121, 364, 1093, 3280, 9841, 29524]
         self.alt_increments1 = [1, 5, 17, 53, 149, 373, 1123, 3371, 10111, 30341]
         self.alt_increments2 = [1, 10, 30, 60, 120, 360, 1080, 3240, 9720, 29160]
-        self.custom_increments = [1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]  # Powers of 2 minus 1
+        # Hibbard sequence: 2^k - 1 (1, 3, 7, 15, 31, 63, 127, etc.)
+        self.hibbard_increments = [2**k - 1 for k in range(1, 14)]  # Up to 8191
         
         # Create an instance of InsertionSort
         self.insertion_sorter = InsertionSort()
@@ -85,9 +86,9 @@ class ShellSort:
         
         return arr
     
-    def shell_sort_custom(self, arr):
+    def shell_sort_hibbard(self, arr):
         """
-        Shell sort using a custom increment sequence: 1, 3, 7, 15, 31, 63, ...
+        Shell sort using Hibbard's increment sequence: 1, 3, 7, 15, 31, 63, ...
         Sorts the array in-place.
         
         Args:
@@ -96,7 +97,7 @@ class ShellSort:
         Returns:
             The same list, sorted in ascending order
         """
-        increments = self._get_applicable_increments(self.custom_increments, len(arr))
+        increments = self._get_applicable_increments(self.hibbard_increments, len(arr))
         
         for increment in increments:
             self.insertion_sorter.insertion_sort_with_increment(arr, increment)
@@ -110,7 +111,7 @@ class ShellSort:
         Args:
             arr: A list of integers to be sorted
             increment_type: The type of increment sequence to use:
-                           'knuth', 'alt1', 'alt2', or 'custom'
+                           'knuth', 'alt1', 'alt2', or 'hibbard'
             
         Returns:
             The same list, sorted in ascending order
@@ -121,8 +122,8 @@ class ShellSort:
             return self.shell_sort_alt1(arr)
         elif increment_type == 'alt2':
             return self.shell_sort_alt2(arr)
-        elif increment_type == 'custom':
-            return self.shell_sort_custom(arr)
+        elif increment_type == 'hibbard':
+            return self.shell_sort_hibbard(arr)
         else:
             # Default to Knuth's sequence
             return self.shell_sort_knuth(arr)
