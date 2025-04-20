@@ -31,3 +31,32 @@ class InsertionSort:
             arr[j + 1] = key
         
         return arr
+    
+    def insertion_sort_with_increment(self, arr, increment):
+        """
+        Modified insertion sort that operates on subarrays with a specific gap/increment.
+        Used by Shell Sort to sort elements that are 'increment' positions apart.
+        This creates h-sorted arrays, where h is the increment value.
+        
+        For each position starting at 'increment', this method:
+        1. Takes the element at that position as the key
+        2. Compares it with elements that are 'increment' positions before it
+        3. Shifts larger elements forward by 'increment' positions
+        4. Places the key in its correct position within its subarray
+        
+        Args:
+            arr: A list of integers to be sorted
+            increment: The gap between elements to be compared
+            
+        Returns:
+            The same list, with all elements spaced 'increment' apart properly sorted
+        """
+        for i in range(increment, len(arr)):
+            key = arr[i]
+            j = i
+            # Compare and shift elements that are 'increment' positions apart
+            while j >= increment and arr[j - increment] > key:
+                arr[j] = arr[j - increment]
+                j -= increment
+            arr[j] = key
+        return arr
