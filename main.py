@@ -27,9 +27,9 @@ def main():
 
     # Open output file as blank, ready for writing
     with open(output_file, 'w') as f:
-        f.write("=" * 40 + "\n")
+        f.write("=" * 55 + "\n")
         f.write("Comparison of Heap, Shell, Merge and Insertion Sort\n")
-        f.write("=" * 40 + "\n\n")
+        f.write("=" * 55 + "\n\n")
     
     # Initialize CSV file with headers
     with open(csv_file, 'w', newline='') as f:
@@ -54,7 +54,7 @@ def main():
         sorted_output_file = f"output_{size}.txt"
         with open(sorted_output_file, 'w') as f:
             f.write(f"Sorted Numbers for Size {size}\n")
-            f.write("=" * 40 + "\n\n")
+            f.write("=" * 55 + "\n\n")
 
         for order in orders:
             input_file = f"numbers_{size}_{order}.txt"
@@ -187,7 +187,7 @@ def main():
                         f"milliseconds\n")
                 f.write(f"Insertion Sort Duration: " 
                         f"{(insertion_duration * 1000):.4f} milliseconds\n\n")
-                f.write("-" * 40 + "\n\n")
+                f.write("-" * 55 + "\n\n")
 
             # Append timings to CSV file
             with open(csv_file, 'a', newline='') as f:
