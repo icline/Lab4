@@ -3,6 +3,7 @@ from HeapSort import HeapSort
 from ShellSort import ShellSort
 from MergeSort import MergeSort
 from InsertionSort import InsertionSort
+import ErrorHandling
 from time import perf_counter
 import csv
 
