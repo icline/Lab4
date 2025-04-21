@@ -152,6 +152,7 @@ def main():
             merge_sorted = merge_sorter.merge_sort(numbers.copy())  
             merge_end = perf_counter()
             merge_duration = merge_end - merge_start
+            
             # Write merge sort results
             with open(sorted_output_file, 'a') as f:
                 f.write(f"Merge Sort (File: {input_file})\n")
