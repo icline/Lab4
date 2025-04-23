@@ -70,6 +70,9 @@ def main():
                             continue
                         line = line.strip()
                         numbers.append(int(line))
+
+                ErrorHandling.SortErrorHandler.validate_input(numbers)
+
             except FileNotFoundError:
                 with open(output_file, 'a') as f:
                     f.write(f"Input file {input_file} was not found.\n\n")
