@@ -121,9 +121,9 @@ def main():
             shell_end_2 = perf_counter()
             shell_duration_2 = shell_end_2 - shell_start_2
             
-            # Write set2 shell sort results
+            # Write set2 increment shell sort results
             with open(sorted_output_file, 'a') as f:
-                f.write(f"Shell Sort Set2 (File: {input_file})\n")
+                f.write(f"Shell Sort 2nd Increment Set (File: {input_file})\n")
                 f.write(f"{shell_sorted_2}\n\n")
 
             # Run and time third increment set shell sort
@@ -135,7 +135,7 @@ def main():
             
             # Write set3 shell sort results
             with open(sorted_output_file, 'a') as f:
-                f.write(f"Shell Sort Set3 (File: {input_file})\n")
+                f.write(f"Shell Sort 3rd Increment Set (File: {input_file})\n")
                 f.write(f"{shell_sorted_3}\n\n")
 
             # Run and time fourth increment set shell sort
@@ -145,9 +145,10 @@ def main():
             shell_end_4 = perf_counter()
             shell_duration_4 = shell_end_4 - shell_start_4
             
-            # Write hibbard shell sort results
+            # Write fourth increment set (Hibbard) shell sort results
             with open(sorted_output_file, 'a') as f:
-                f.write(f"Shell Sort Hibbard (File: {input_file})\n")
+                f.write(f"Shell Sort 4th Increment Set (Hibbard) " 
+                        f"(File: {input_file})\n")
                 f.write(f"{shell_sorted_4}\n\n")
 
             # Run and calculate duration for Merge sort
